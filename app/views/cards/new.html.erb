@@ -1,15 +1,38 @@
 <h1>Create a new Card</h1>
 <%= form_for :post do |f| %>
     <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
     </p>
 
     <p>
-      <%= f.label :text %><br>
-      <%= f.text_area :text %>
+      <%= f.label :class %><br>
+      <%= f.text_area :class %>
     </p>
-
+    <p>
+      <%= f.label :cost %><br>
+      <%= f.text_area :cost %>
+    </p>
+    <p>
+      <%= f.label :attack %><br>
+      <%= f.text_area :attack %>
+    </p>
+    <p>
+      <%= f.label :health %><br>
+      <%= f.text_area :health %>
+    </p>
+    <p>
+      <%= f.label :race %><br>
+      <%= f.text_area :race %>
+    </p>
+    <p>
+      <%= f.label :rarity %><br>
+      <%= f.text_area :rarity %>
+    </p>
+    <p>
+      <%= f.label :type %><br>
+      <%= f.text_area :type %>
+    </p>
     <p>
       <%= f.submit %>
     </p>
