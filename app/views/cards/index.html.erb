@@ -1,5 +1,5 @@
 <h1>All current cards</h1>
-
+<%= link_to 'Create new Card', new_card_path %>
 <table>
   <tr>
     <th>Name</th>
@@ -10,6 +10,9 @@
     <th>Attack</th>
     <th>Health</th>
     <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% @cards.each do |card| %>
@@ -22,6 +25,9 @@
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
         <td><%= card.description %></td>
+        <td><%= link_to 'Show', card_path(card) %></td>
+        <td><%= link_to 'Edit', edit_card_path(card)%></td>
+        <td><%= link_to 'Delete', card_path(card), method: :delete, data: { confirm: 'Do you really want to delete this card?'} %></td>
       </tr>
   <% end %>
 </table>

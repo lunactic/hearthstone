@@ -14,8 +14,15 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
   end
+  def edit
+    @card = Card.find(params[:id])
+  end
+  def destroy
+    @card = Card.find(params[:id])
+    @card.destroy
 
-
+    redirect_to cards_path
+  end
   private
     def post_params
       params.require(:card).permit(:name,:card_class, :type, :rarity, :cost, :attack, :health, :description)

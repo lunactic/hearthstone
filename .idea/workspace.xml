@@ -2,39 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72d24a57-8bd1-4686-a324-ce3d7846abc6" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/deck.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130930111801_create_users.rb" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/cards/_form.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/cards/edit.html.erb" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130930111944_create_cards.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20130930112531_create_decks.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20131007073036_add_name_to_cards.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/cards.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/cards.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/fixtures/cards.yml" afterPath="$PROJECT_DIR$/test/fixtures/cards.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cards/index.html.erb" afterPath="$PROJECT_DIR$/app/views/cards/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cards/new.html.erb" afterPath="$PROJECT_DIR$/app/views/cards/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hearthstone.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381244267269" ignored="false" />
+    <file path="/Dummy.txt" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381261244932" ignored="false" />
     <file path="/deck.rb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1380540370975" ignored="false" />
     <file path="/Gemfile" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1380543425695" ignored="false" />
     <file path="/database.yml" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381131282697" ignored="false" />
     <file path="/routes.rb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381133656640" ignored="false" />
-    <file path="/index.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381255704722" ignored="false" />
+    <file path="/index.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381264025679" ignored="false" />
     <file path="/README.rdoc" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1380898126806" ignored="false" />
-    <file path="/cards_controller.rb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381255549532" ignored="false" />
-    <file path="/new.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381247519061" ignored="false" />
-    <file path="/show.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381245256637" ignored="false" />
+    <file path="/cards_controller.rb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381263895192" ignored="false" />
+    <file path="/new.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381263696165" ignored="false" />
+    <file path="/show.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381262935440" ignored="false" />
     <file path="/list.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381227906149" ignored="false" />
     <file path="/a.dummy" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381245617360" ignored="false" />
     <file path="/20131008153541_create_cards.rb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381247466660" ignored="false" />
     <file path="$PROJECT_DIR$/log/development.log" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381255716186" ignored="false" />
+    <file path="/_form.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381263626004" ignored="false" />
+    <file path="/edit.html.erb" changelist="72d24a57-8bd1-4686-a324-ce3d7846abc6" time="1381263950279" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,10 +49,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <file leaf-file-name="cards_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/cards_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="21" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
+            <state line="23" column="26" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/cards/edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="33" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -66,16 +70,7 @@
       <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/cards/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="61" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cards_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/cards_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="21" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+            <state line="0" column="38" selection-start="3" selection-end="3" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -84,7 +79,16 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/cards/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="580" selection-end="580" vertical-scroll-proportion="0.72321427">
+            <state line="29" column="125" selection-start="877" selection-end="877" vertical-scroll-proportion="0.7261663">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/cards/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="9" selection-start="786" selection-end="786" vertical-scroll-proportion="-17.416666">
               <folding />
             </state>
           </provider>
@@ -93,7 +97,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/cards/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="52" selection-start="27" selection-end="27" vertical-scroll-proportion="-0.0">
+            <state line="2" column="27" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -113,6 +117,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -128,10 +133,12 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/cards/list.html.erb" />
         <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/cards/show.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20131008153541_create_cards.rb" />
+        <option value="$PROJECT_DIR$/app/views/cards/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/cards/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cards/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/cards_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/cards/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/cards/index.html.erb" />
       </list>
     </option>
@@ -175,8 +182,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -265,17 +270,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.heroku.HerokuSettings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.heroku.HerokuSettings" />
     <property name="RakeTaksPopup.undocumentedIncluded" value="false" />
     <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager" selected="Rails.Development: Hearthstone">
     <configuration default="false" name="db:migrate" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
@@ -539,7 +546,9 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="development" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyDebugRunner" />
       <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
@@ -586,15 +595,15 @@
     <frame x="-1" y="27" width="1922" height="1054" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896176" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24969324" sideWeight="0.67413217" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21864952" sideWeight="0.67431694" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22132905" sideWeight="0.6010929" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32568306" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3989071" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32568306" sideWeight="0.7368703" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922733" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -668,11 +677,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.0/lib/action_dispatch/routing/mapper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1437" column="0" selection-start="50569" selection-end="50569" vertical-scroll-proportion="0.0" />
@@ -702,16 +706,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="66" selection-start="100" selection-end="100" vertical-scroll-proportion="0.057251908">
-          <folding />
-        </state>
+        <state line="2" column="66" selection-start="100" selection-end="100" vertical-scroll-proportion="0.057251908" />
       </provider>
     </entry>
     <entry file="uml://RailsDependency/#Hearthstone">
@@ -724,25 +724,19 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="142.0" y="125.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="142.0" y="126.0" />
           <SelectedNodes />
           <Categories>
-            <Category>Association fields</Category>
             <Category>Migration fields</Category>
+            <Category>Association fields</Category>
           </Categories>
+          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="21" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/cards/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="61" selection-start="28" selection-end="28" vertical-scroll-proportion="-0.625">
           <folding />
         </state>
       </provider>
@@ -754,23 +748,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/cards_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/cards/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="21" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+        <state line="36" column="9" selection-start="786" selection-end="786" vertical-scroll-proportion="-17.416666">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cards/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="52" selection-start="27" selection-end="27" vertical-scroll-proportion="-0.0">
+        <state line="2" column="27" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/cards/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="33" selection-start="75" selection-end="75" vertical-scroll-proportion="-1.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/cards_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="26" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/cards/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="38" selection-start="3" selection-end="3" vertical-scroll-proportion="-0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cards/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="580" selection-end="580" vertical-scroll-proportion="0.72321427">
+        <state line="29" column="125" selection-start="877" selection-end="877" vertical-scroll-proportion="0.7261663">
           <folding />
         </state>
       </provider>

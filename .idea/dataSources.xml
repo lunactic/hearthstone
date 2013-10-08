@@ -3,8 +3,8 @@
   <component name="DataSourceManagerImpl" format="xml" hash="528371658">
     <data-source source="LOCAL" name="Rails Hearthstone: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="4fa3dfc1-c9c4-48b9-8614-46955bc5ad26">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:hearthstone_test</jdbc-url>
-      <user-name>hearthstone</user-name>
+      <jdbc-url>jdbc:postgresql:myapp_test</jdbc-url>
+      <user-name>myapp</user-name>
       <user-password>dffddfcfdfc6dfc9dfc5dfc7dfcfdf9b</user-password>
       <libraries>
         <library>
@@ -17,8 +17,8 @@
     </data-source>
     <data-source source="LOCAL" name="Rails Hearthstone: development" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="de6ed5ef-0cc2-4537-8704-c0b2e6247957">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:hearthstone_development</jdbc-url>
-      <user-name>hearthstone</user-name>
+      <jdbc-url>jdbc:postgresql:myapp_development</jdbc-url>
+      <user-name>myapp</user-name>
       <user-password>dffddfcfdfc6dfc9dfc5dfc7dfcfdf9b</user-password>
       <libraries>
         <library>
@@ -31,8 +31,8 @@
     </data-source>
     <data-source source="LOCAL" name="Rails Hearthstone: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="8598df5d-1ffd-4702-90b6-d7d056b5cea9">
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:hearthstone_production</jdbc-url>
-      <user-name>hearthstone</user-name>
+      <jdbc-url>jdbc:postgresql:myapp_production</jdbc-url>
+      <user-name>myapp</user-name>
       <user-password>dffddfcfdfc6dfc9dfc5dfc7dfcfdf9b</user-password>
       <libraries>
         <library>
