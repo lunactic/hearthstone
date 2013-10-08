@@ -1,20 +1,23 @@
 class CardsController < ApplicationController
   def new
-
+     @card = Card.new
   end
-
   def create
-    @post = Card.new(post_params)
-    @post.save
-    redirect_to @post
+    @card = Card.new(post_params)
+    @card.save
+    redirect_to @card
+  end
+  def show
+    @card = Card.find(params[:id])
   end
 
   def index
-    @post = Card.all
+    @cards = Card.all
   end
+
 
   private
     def post_params
-      params.require(:post).permit(:name, :class, :cost, :attack, :health, :race, :rarity, :type)
+      params.require(:card).permit(:name,:card_class, :type, :rarity, :cost, :attack, :health, :description)
     end
 end

@@ -1,41 +1,38 @@
-<h1>Create a new Card</h1>
-<%= form_for :post do |f| %>
+<h1>Create a new card!</h1>
+<%= form_for :card, url: cards_path do |f| %>
     <p>
       <%= f.label :name %><br>
       <%= f.text_field :name %>
     </p>
-
     <p>
-      <%= f.label :class %><br>
-      <%= f.text_area :class %>
+      <%= f.label :card_class %><br>
+      <%= f.text_field :card_class %>
     </p>
     <p>
-      <%= f.label :cost %><br>
-      <%= f.text_area :cost %>
-    </p>
-    <p>
-      <%= f.label :attack %><br>
-      <%= f.text_area :attack %>
-    </p>
-    <p>
-      <%= f.label :health %><br>
-      <%= f.text_area :health %>
-    </p>
-    <p>
-      <%= f.label :race %><br>
-      <%= f.text_area :race %>
+      <%= f.label :card_type %><br>
+      <%= f.text_field :card_type %>
     </p>
     <p>
       <%= f.label :rarity %><br>
-      <%= f.text_area :rarity %>
+      <%= f.text_field :rarity %>
     </p>
     <p>
-      <%= f.label :type %><br>
-      <%= f.text_area :type %>
+      <%= f.label :cost %><br>
+      <%= f.text_field :cost %>
+    </p>
+    <p>
+      <%= f.label :attack %><br>
+      <%= f.text_field :attack %>
+    </p>
+    <p>
+      <%= f.label :health %><br>
+      <%= f.text_field :health %>
+    </p>
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_field :description %>
     </p>
     <p>
       <%= f.submit %>
     </p>
 <% end %>
-
-<%= link_to 'Back', cards_path %>

@@ -1,27 +1,27 @@
-<h1>List all existing cards in the database</h1>
-<%= link_to 'Create new Card', new_card_path %>
+<h1>All current cards</h1>
+
 <table>
   <tr>
     <th>Name</th>
     <th>Class</th>
-    <th>Race</th>
     <th>Type</th>
     <th>Rarity</th>
     <th>Cost</th>
     <th>Attack</th>
     <th>Health</th>
+    <th>Description</th>
   </tr>
 
-  <% @posts.each do |card| %>
+  <% @cards.each do |card| %>
       <tr>
-        <td><%= post.name %></td>
-        <td><%= post.class %></td>
-        <td><%= post.race %></td>
-        <td><%= post.type %></td>
-        <td><%= post.rarity %></td>
-        <td><%= post.cost %></td>
-        <td><%= post.attack %></td>
-        <td><%= post.health %></td>
+        <td><%= card.name %></td>
+        <td><%= card.card_class %></td>
+        <td><%= card.card_type %></td>
+        <td><%= card.rarity %></td>
+        <td><%= card.cost %></td>
+        <td><%= card.attack %></td>
+        <td><%= card.health %></td>
+        <td><%= card.description %></td>
       </tr>
   <% end %>
 </table>

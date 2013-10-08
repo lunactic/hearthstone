@@ -1,21 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  costs: 1
-  class: MyString
-  type: 
-  race: MyString
-  abilities: MyString
-  attack: 1
-  health: 1
+  name: MyString
   rarity: MyString
 
 two:
-  costs: 1
-  class: MyString
-  type: 
-  race: MyString
-  abilities: MyString
-  attack: 1
-  health: 1
+  name: MyString
   rarity: MyString
