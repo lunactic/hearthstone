@@ -4,8 +4,11 @@ class CardsController < ApplicationController
   end
   def create
     @card = Card.new(post_params)
-    @card.save
-    redirect_to @card
+    if @card.save
+      redirect_to @card
+    else
+      render 'new'
+    end
   end
   def show
     @card = Card.find(params[:id])
