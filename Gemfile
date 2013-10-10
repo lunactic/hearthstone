@@ -33,7 +33,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
+gem 'therubyracer', platforms: :ruby
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+gem 'httparty'
 #group :development, :test do
 #  gem 'sqlite3'
 #end

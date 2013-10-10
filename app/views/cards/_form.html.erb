@@ -1,37 +1,56 @@
-<%= form_for ([@card]), url: cards_path do |f| %>
-    <p>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :card_class %><br>
-      <%= f.text_field :card_class %>
-    </p>
-    <p>
-      <%= f.label :card_type %><br>
-      <%= f.text_field :card_type %>
-    </p>
-    <p>
-      <%= f.label :rarity %><br>
-      <%= f.text_field :rarity %>
-    </p>
-    <p>
-      <%= f.label :cost %><br>
-      <%= f.text_field :cost %>
-    </p>
-    <p>
-      <%= f.label :attack %><br>
-      <%= f.text_field :attack %>
-    </p>
-    <p>
-      <%= f.label :health %><br>
-      <%= f.text_field :health %>
-    </p>
-    <p>
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+<%= form_for @card, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :card_class, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :card_class, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :card_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :card_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :rarity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :rarity, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cost, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cost, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :attack, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :attack, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :health, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :health, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                cards_path, :class => 'btn' %>
+  </div>
 <% end %>
