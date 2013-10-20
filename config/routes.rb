@@ -6,6 +6,7 @@ Hearthstone::Application.routes.draw do
   root to:'welcome#index'
 
   resources :cards
+	resources :stat_entries
 
 
   # Example of regular route:

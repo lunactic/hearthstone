@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hero: MyString
+  opp_hero: MyString
+  game_mode: MyString
+  result: MyString
+  first: false
+  created_at: 2013-10-19
+
+two:
+  hero: MyString
+  opp_hero: MyString
+  game_mode: MyString
+  result: MyString
+  first: false
+  created_at: 2013-10-19

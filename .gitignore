@@ -16,3 +16,6 @@
 /tmp
 #Ignore all Rubymine-Files
 .idea/
+
+*~
+Procfile
