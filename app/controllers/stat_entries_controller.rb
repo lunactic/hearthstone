@@ -10,5 +10,9 @@ class StatEntriesController < ApplicationController
 	end
 
 	def destroy
+	  @stat_entry = StatEntry.find(params[:id])
+	  @stat_entry.destroy
+ 
+	  redirect_to stat_entries_path
 	end
 end
