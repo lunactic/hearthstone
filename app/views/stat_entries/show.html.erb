@@ -1,0 +1,29 @@
+<h1>Stat Entries</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Hero</th>
+      <th>Opponent Hero</th>
+      <th>Game Mode</th>
+      <th>Result</th>
+      <th>Did you go first?</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to @stat_entry.id, stat_entry_path(@stat_entry) %></td>
+      <td><%= @stat_entry.hero %></td>
+      <td><%= @stat_entry.opp_hero %></td>
+      <td><%= @stat_entry.game_mode %></td>
+      <td><%= @stat_entry.result %></td>
+      <td><%= @stat_entry.first %></td>
+      <td><%= @stat_entry.created_at %></td>
+      <td><%= @stat_entry.updated_at %></td>
+    </tr>
+  </tbody>
+</table>
