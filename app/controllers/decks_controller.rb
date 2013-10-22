@@ -15,6 +15,7 @@ class DecksController < ApplicationController
   # GET /decks/new
   def new
     @deck = Deck.new
+    @cards = Card.all
   end
 
   # GET /decks/1/edit
@@ -28,7 +29,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
+        format.html { redirect_to decks/addCards/:id_path}
         format.json { render action: 'show', status: :created, location: @deck }
       else
         format.html { render action: 'new' }
@@ -61,6 +62,12 @@ class DecksController < ApplicationController
     end
   end
 
+  def addCards
+     deck = Deck.find(params[:id])
+     @cards = Card.where(card_class:  deck.deck_type)
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_deck
@@ -69,6 +76,6 @@ class DecksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deck_params
-      params[:deck]
+      params.require(:deck).permit(:name,:deck_type)
     end
 end

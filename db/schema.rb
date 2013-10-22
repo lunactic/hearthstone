@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20131010105531) do
     t.datetime "updated_at"
   end
 
+  create_table "cards_decks", force: true do |t|
+    t.integer "deck_id"
+    t.integer "card_id"
+  end
+
   create_table "decks", force: true do |t|
     t.string   "name"
     t.string   "deck_type"

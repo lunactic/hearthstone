@@ -28,6 +28,6 @@ class CardsController < ApplicationController
   end
   private
     def post_params
-      params.require(:card).permit(:name,:card_class, :type, :rarity, :cost, :attack, :health, :description)
+      params.require(:card).permit(:name,:card_class, :card_type, :rarity, :cost, :attack, :health, :description)
     end
 end

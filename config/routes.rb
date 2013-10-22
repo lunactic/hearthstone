@@ -5,7 +5,10 @@ Hearthstone::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root to:'welcome#index'
 
+  get 'decks/addCards/:id' => 'decks#addCards'
+
   resources :cards
+  resources :decks
 
 
   # Example of regular route:
