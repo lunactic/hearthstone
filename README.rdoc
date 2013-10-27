@@ -8,5 +8,6 @@ Quick installation notice:
  - The Database information can be foundin config/database.yml
  - A quick intro into Heroku can be found here: https://devcenter.heroku.com/articles/getting-started-with-rails4
  - A quick intro into RoR can be found here: http://guides.rubyonrails.org/getting_started.html
+ - Make sure to insert following roles into roles db: admin, user, guest; with ids 0, 1, 2
 
 I hope this should cover the most important things to get started ;-)

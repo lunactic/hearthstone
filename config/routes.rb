@@ -7,6 +7,7 @@ Hearthstone::Application.routes.draw do
 
   resources :cards
 	resources :stat_entries
+  devise_for :users
 
 
   # Example of regular route:
