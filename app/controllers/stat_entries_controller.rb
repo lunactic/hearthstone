@@ -38,10 +38,10 @@ class StatEntriesController < ApplicationController
 	def destroy
 		@user = User.find(params[:user_id])
 	  @stat_entry = @user.stat_entries.find(params[:id])
-		authorize! :destroy, @stat_entry
+		authorize! :delete, @stat_entry
 	  @stat_entry.destroy
  
-	  redirect_to stat_entries_path
+	  redirect_to user_stat_entries_path
 	end
 
 	def update
