@@ -16,7 +16,7 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to @stat_entry.id, stat_entry_path(@stat_entry) %></td>
+      <td><%= link_to @stat_entry.id, user_stat_entry_path(@stat_entry.user_id, @stat_entry) %></td>
       <td><%= @stat_entry.hero %></td>
       <td><%= @stat_entry.opp_hero %></td>
       <td><%= @stat_entry.game_mode %></td>

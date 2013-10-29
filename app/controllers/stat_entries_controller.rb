@@ -6,33 +6,38 @@ class StatEntriesController < ApplicationController
 	end
 
 	def create
-		@stat_entry = StatEntry.new(params[:stat_entry].permit(:hero, :opp_hero, :game_mode, :result, :first))
+		@user = User.find(params[:user_id])
+		@stat_entry = @user.stat_entries.create(params[:stat_entry].permit(:hero, :opp_hero, :game_mode, :result, :first))
 		authorize! :create, @stat_entry 
 
 		if @stat_entry.save
-			redirect_to @stat_entry
+			redirect_to user_stat_entries_path
 		else
 			render 'new'
 		end
 	end
 
 	def edit
-		@stat_entry = StatEntry.find(params[:id])
+		@user = User.find(params[:user_id])
+		@stat_entry = @user.stat_entries.find(params[:id])
 		authorize! :update, @stat_entry 
 	end
 
 	def show
-		@stat_entry = StatEntry.find(params[:id])
+		@user = User.find(params[:user_id])
+		@stat_entry = @user.stat_entries.find(params[:id])
 		authorize! :read, @stat_entry
 	end
 
 	def index
-		@stat_entries  = StatEntry.all
+		@user = User.find(params[:user_id])
+		@stat_entries  = @user.stat_entries.all
 		authorize! :read, @stat_entries
 	end
 
 	def destroy
-	  @stat_entry = StatEntry.find(params[:id])
+		@user = User.find(params[:user_id])
+	  @stat_entry = @user.stat_entries.find(params[:id])
 		authorize! :destroy, @stat_entry
 	  @stat_entry.destroy
  
@@ -44,7 +49,7 @@ class StatEntriesController < ApplicationController
 		authorize! :update, @stat_entry
 	 
 		if @stat_entry.update(params[:stat_entry].permit(:hero, :opp_hero, :game_mode, :result, :first))
-		  redirect_to @stat_entry
+		  redirect_to user_stat_entries_path
 		else
 		  render 'edit'
 		end

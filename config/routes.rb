@@ -6,8 +6,10 @@ Hearthstone::Application.routes.draw do
   root to:'welcome#index'
 
   resources :cards
-	resources :stat_entries
   devise_for :users
+	resources :users do
+		resources :stat_entries
+	end
 
 
   # Example of regular route:

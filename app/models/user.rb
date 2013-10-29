@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_and_belongs_to_many :roles
+	has_many :stat_entries
 
 	after_create :default_role
 
