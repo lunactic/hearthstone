@@ -1,0 +1,42 @@
+<%- model_class = StatEntry -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Hero</th>
+      <th>Opponent Hero</th>
+      <th>Game Mode</th>
+      <th>Result</th>
+      <th>Did you go first?</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stat_entries.each do |stat_entry| %>
+      <tr>
+        <td><%= link_to stat_entry.id, user_stat_entry_path(stat_entry.user_id, stat_entry) %></td>
+        <td><%= stat_entry.hero %></td>
+        <td><%= stat_entry.opp_hero %></td>
+        <td><%= stat_entry.game_mode %></td>
+        <td><%= stat_entry.result %></td>
+        <td><%= stat_entry.first %></td>
+        <td><%= stat_entry.created_at %></td>
+        <td><%= stat_entry.updated_at %></td>
+        <td>
+          <%= link_to t('.update', :default => t("helpers.links.edit")),
+                      edit_user_stat_entry_path(stat_entry.user_id,stat_entry), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_stat_entry_path(stat_entry.user_id,stat_entry),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

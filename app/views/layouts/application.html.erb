@@ -50,6 +50,26 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "Card Manager", cards_path  %></li>
+              <% if user_signed_in? %>
+								<li id="fat-menu" class="dropdown">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										Statistics<b class="caret"></b>
+                	</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to "Add", new_user_stat_entry_path(current_user.id) %>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+											<%= link_to "Show all", user_stat_entries_path(current_user.id) %>
+										</li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Overview", user_stat_entries_overview_path(current_user.id) %>
+                    </li>
+                  </ul>
+                </li>
+							<% end %>
             </ul>
             <ul class="nav pull-right">
               <% if user_signed_in? %>
