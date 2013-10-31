@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 	has_and_belongs_to_many :roles
 
+	validates_presence_of :username
+	validates_uniqueness_of :username
+
 	after_create :default_role
 
   # Include default devise modules. Others available are:
