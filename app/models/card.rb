@@ -1,5 +1,6 @@
 class Card < ActiveRecord::Base
-  has_and_belongs_to_many :decks
+  has_many :decks, through: :card_decks
+  has_many :card_decks
   validates :name, presence: true
   validates :rarity, presence: true
   validates :card_class, presence: true

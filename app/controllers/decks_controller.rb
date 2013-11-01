@@ -29,7 +29,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to decks/addCards/:id_path}
+        format.html { redirect_to '/decks/addCards/'+@deck.id.to_s}
         format.json { render action: 'show', status: :created, location: @deck }
       else
         format.html { render action: 'new' }
@@ -63,9 +63,38 @@ class DecksController < ApplicationController
   end
 
   def addCards
-     deck = Deck.find(params[:id])
-     @cards = Card.where(card_class:  deck.deck_type)
+     @deck = Deck.find(params[:id])
+     @cards = Card.where(card_class:  @deck.deck_type)
 
+  end
+
+  def addCard
+      @deck = Deck.find(params[:deckId])
+      @card = Card.find(params[:cardId])
+      if @deck.cards.include?(@card)
+        cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
+        cardDeck.quantity = 2
+        cardDeck.save
+      else
+        @deck.cards << @card
+        cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
+        cardDeck.quantity = 1
+        cardDeck.save
+      end
+      redirect_to '/decks/addCards/'+@deck.id.to_s
+  end
+
+  def removeCard
+    @deck = Deck.find(params[:deckId])
+    @card = Card.find(params[:cardId])
+    cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
+    if @deck.cards.include?(@card) && cardDeck.quantity==2
+      cardDeck.quantity = 1
+      cardDeck.save
+    else
+      @deck.cards.destroy(@card)
+    end
+    redirect_to '/decks/addCards/'+@deck.id.to_s
   end
 
   private

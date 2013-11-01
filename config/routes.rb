@@ -6,9 +6,13 @@ Hearthstone::Application.routes.draw do
   root to:'welcome#index'
 
   get 'decks/addCards/:id' => 'decks#addCards'
-
+  post 'decks/addCards/:deckId/:cardId' => 'decks#addCard', :as => :add_card
+  delete 'decks/addCards/:deckId/:cardId' => 'decks#removeCard', :as => :remove_card
+  post 'data_loader/upload' => 'data_loader#upload'
   resources :cards
   resources :decks
+  resources :data_loader, :only => [:index, :upload]
+
 
 
   # Example of regular route:
