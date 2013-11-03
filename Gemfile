@@ -44,6 +44,8 @@ gem 'httparty'
 gem 'devise'
 gem 'cancan'
 
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

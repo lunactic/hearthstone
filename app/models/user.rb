@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
+	mount_uploader :avatar, AvatarUploader
+
 	has_and_belongs_to_many :roles
 	has_many :stat_entries
 
-	validates_presence_of :username
-	validates_uniqueness_of :username
+	validates :username, presence: true
+	validates :username, uniqueness: true, if: -> { self.username.present? }
 
 	after_create :default_role
 
