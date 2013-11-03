@@ -24,7 +24,11 @@
         <td><%= stat_entry.opp_hero %></td>
         <td><%= stat_entry.game_mode %></td>
         <td><%= stat_entry.result %></td>
-        <td><%= stat_entry.first %></td>
+				<% if stat_entry.first %>
+		    	<td>Yes</td>
+				<% else %>
+					<td>No</td>
+				<% end %>
         <td><%= stat_entry.created_at %></td>
         <td><%= stat_entry.updated_at %></td>
         <td>
