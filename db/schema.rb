@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(version: 20131104105705) do
 
+  create_table "card_decks", force: true do |t|
+    t.integer  "card_id"
+    t.integer  "deck_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "card_decks", ["card_id"], name: "index_card_decks_on_card_id", using: :btree
+  add_index "card_decks", ["deck_id"], name: "index_card_decks_on_deck_id", using: :btree
+
   create_table "cards", force: true do |t|
     t.string   "name"
     t.string   "card_class"
@@ -21,7 +32,14 @@ ActiveRecord::Schema.define(version: 20131104105705) do
     t.integer  "cost"
     t.integer  "attack"
     t.integer  "health"
-    t.integer  "description"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "decks", force: true do |t|
+    t.string   "name"
+    t.string   "deck_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

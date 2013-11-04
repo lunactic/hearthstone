@@ -10,8 +10,11 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(post_params)
     authorize! :create, @card
-    @card.save
-    redirect_to @card
+    if @card.save
+      redirect_to @card
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -39,6 +42,6 @@ class CardsController < ApplicationController
 
   private
     def post_params
-      params.require(:card).permit(:name,:card_class, :type, :rarity, :cost, :attack, :health, :description)
+      params.require(:card).permit(:name,:card_class, :card_type, :rarity, :cost, :attack, :health, :description)
     end
 end

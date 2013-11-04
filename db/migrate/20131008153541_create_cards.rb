@@ -8,7 +8,7 @@ class CreateCards < ActiveRecord::Migration
       t.integer :cost
       t.integer :attack
       t.integer :health
-      t.integer :description
+      t.string :description
 
       t.timestamps
     end
