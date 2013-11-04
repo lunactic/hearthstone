@@ -77,5 +77,8 @@ class StatEntriesController < ApplicationController
 			game_mode: params[:stat_entry].permit([:game_mode])[:game_mode],
 			first: params[:stat_entry].permit([:first])[:first]})
 		end
+
+		@nbr_win = @stat_entries.where(result: 'Victory').count
+		@nbr_loss = @stat_entries.where(result: 'Defeat').count
 	end
 end
