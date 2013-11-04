@@ -32,6 +32,8 @@
         <td><%= card.description %></td>
         <td><%=l card.created_at %></td>
         <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      card_path(card), :class => 'btn btn-primary btn-mini' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_card_path(card), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
