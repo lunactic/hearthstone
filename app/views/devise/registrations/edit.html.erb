@@ -28,6 +28,13 @@
           <dl class="dl-horizontal">
             <dt><strong><%= model_class.human_attribute_name(:username) %>:</strong></dt>
             <dd><%= resource.username %></dd>
+            <dt><strong>Real name:</strong></dt>
+            <dd>
+              <% if resource.realname.nil? %>
+                Not available
+              <% else %>
+                <%= resource.realname %></dd>
+              <% end %>
             <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
             <dd><%= resource.email %></dd>
           </dl>
@@ -47,6 +54,12 @@
           <%= f.label :username, :class => 'control-label' %>
           <div class="controls">
             <%= f.text_field :username, :autofocus => true, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label 'Real name', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :realname, :autofocus => true, :class => 'text_field' %>
           </div>
         </div>
         <div class="control-group">
