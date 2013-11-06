@@ -7,11 +7,11 @@ Hearthstone::Application.routes.draw do
 
   resources :cards
   devise_for :users
-	resources :users do
-		get 'stat_entries/overview' => 'stat_entries#overview'
-		post 'stat_entries/select_overview' => 'stat_entries#select_overview'
-		resources :stat_entries
-	end
+  resources :users do
+    get 'stat_entries/overview' => 'stat_entries#overview'
+    post 'stat_entries/select_overview' => 'stat_entries#select_overview'
+    resources :stat_entries
+  end
 
 
   # Example of regular route:
