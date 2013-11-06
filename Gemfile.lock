@@ -50,6 +50,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    highcharts-rails (3.0.7)
+      railties (>= 3.1)
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -152,6 +154,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   devise
+  highcharts-rails (~> 3.0.7)
   httparty
   jbuilder (~> 1.2)
   jquery-rails

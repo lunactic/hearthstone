@@ -10,6 +10,7 @@ class Ability
 			can :read, :all
 			can :update, :all
 			can :create, :all
+			can :delete, StatEntry, :user_id => user.id
 		else                      # guest
 			can :read, :all
 		end
