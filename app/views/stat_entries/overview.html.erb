@@ -1,0 +1,37 @@
+<h1>Stat Entries Overview</h1>
+
+<%= form_for @stat_entry, url: {action: "select_overview"}, :html => { :class => 'form-horizontal' }  do |f| %>
+  <div class="control-group">
+    <%= f.label :hero, :class => 'control-label' %>
+		<div class="controls">
+    	<%= f.select :hero, [['All', 'All'], ['Priest'], ['Warrior'], ['Warlock'], ['Mage'], ['Druid'], ['Hunter'], ['Shaman'], ['Paladin'], ['Rogue']] %>
+		</div>
+  </div>
+ 
+  <div class="control-group">
+    <%= f.label :opp_hero, :class => 'control-label' %>
+		<div class="controls">
+    	<%= f.select :opp_hero, [['All', 'All'], ['Priest'], ['Warrior'], ['Warlock'], ['Mage'], ['Druid'], ['Hunter'], ['Shaman'], ['Paladin'], ['Rogue']] %>
+		</div>
+  </div>
+ 
+  <div class="control-group">
+    <%= f.label :game_mode, :class => 'control-label' %>
+		<div class="controls">
+    	<%= f.select :game_mode, [['All', 'All'], ['Practice'], ['Play'], ['The Arena']] %>
+		</div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :first, :class => 'control-label' %>
+		<div class="controls">
+    	<%= f.select :first, [['All', 'All'], ['Yes', true], ['No', false]] %>
+		</div>
+  </div>
+
+   <div class="form-actions">
+    <%= f.submit 'Show', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_stat_entries_path, :class => 'btn' %>
+  </div>
+<% end %>

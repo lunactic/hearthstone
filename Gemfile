@@ -46,6 +46,8 @@ gem 'cancan'
 
 gem 'carrierwave'
 
+gem "highcharts-rails", "~> 3.0.7"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,7 +1,42 @@
 <%- model_class = StatEntry -%>
+
+<script type="text/javascript">
+	$(function () {
+		    var chart = new Highcharts.Chart({
+		      chart: {
+		        renderTo: 'chart',
+		        type: 'pie'
+		      },
+					title: {
+						text: 'Overview'        
+					},
+		      plotOptions: {
+		        series: {
+		          allowPointSelect: true,
+		          slicedOffset: 0,
+		          states: {
+		              select: {
+		                  color: '#666'
+		              }
+		          }
+		      }
+		  },
+
+		  series: [{
+		      data: [['Victory', <%= @nbr_win %>], ['Defeat', <%= @nbr_loss %>]]        
+		  }]
+		  });
+	});
+</script>
+
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
+<h2>Chart</h2>
+<div id="chart" style="width:300px; height:300px; margin-left:auto; margin-right:auto;"></div>
+
+<h2>Results</h2>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -44,7 +79,3 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_user_stat_entry_path,
-            :class => 'btn btn-primary' %>

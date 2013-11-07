@@ -10,10 +10,15 @@ Hearthstone::Application.routes.draw do
   delete 'decks/addCards/:deckId/:cardId' => 'decks#removeCard', :as => :remove_card
   post 'data_loader/upload' => 'data_loader#upload'
   resources :cards
-	resources :stat_entries
   devise_for :users
   resources :decks
   resources :data_loader, :only => [:index, :upload]
+
+  resources :users do
+    get 'stat_entries/overview' => 'stat_entries#overview'
+    post 'stat_entries/select_overview' => 'stat_entries#select_overview'
+    resources :stat_entries
+  end
 
 
   # Example of regular route:
