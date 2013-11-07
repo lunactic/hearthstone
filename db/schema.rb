@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131104105705) do
     t.integer  "cost"
     t.integer  "attack"
     t.integer  "health"
-    t.string   "description"
+    t.integer  "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
