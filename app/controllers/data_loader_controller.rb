@@ -46,7 +46,7 @@ class DataLoaderController < ApplicationController
 
       #Try find a card with the same name
       #Only import card if none with the same name already exists
-      if Card.where(name: card.name).take!.nil?
+      if Card.where(name: card.name).take.nil?
         if card.save
           counter= counter + 1
         end
