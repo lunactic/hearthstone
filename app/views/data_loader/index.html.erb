@@ -1,9 +1,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => "Data Loading"%></h1>
 
-  <%= form_tag({action: :upload}, multipart: true) do %>
+
+    <%= form_tag({action: :upload}, multipart: true) do %>
       <%= file_field_tag 'jsonfile' %>
-      <%= submit_tag "Accept Checked", :class => "btn btn-primary" %>
+      <%= submit_tag "Upload File", :class => "btn btn-primary" %>
 <% end %>
 
 </div>

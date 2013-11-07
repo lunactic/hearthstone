@@ -5,23 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:card_class) %></th>
-      <th><%= model_class.human_attribute_name(:card_type) %></th>
-      <th><%= model_class.human_attribute_name(:rarity) %></th>
-      <th><%= model_class.human_attribute_name(:cost) %></th>
-      <th><%= model_class.human_attribute_name(:attack) %></th>
-      <th><%= model_class.human_attribute_name(:health) %></th>
+      <th><%= sortable "name", model_class.human_attribute_name(:name) %></th>
+      <th><%= sortable "card_class","Class" %></th>
+      <th><%= sortable "card_type", "Type" %></th>
+      <th><%= sortable "rarity", model_class.human_attribute_name(:rarity) %></th>
+      <th><%= sortable "cost", model_class.human_attribute_name(:cost) %></th>
+      <th><%= sortable "attack", model_class.human_attribute_name(:attack) %></th>
+      <th><%= sortable "health", model_class.human_attribute_name(:health) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
   </thead>
   <tbody>
     <% @cards.each do |card| %>
       <tr>
-        <td><%= link_to card.id, card_path(card) %></td>
         <td><%= card.name %></td>
         <td><%= card.card_class %></td>
         <td><%= card.card_type %></td>
@@ -30,7 +25,6 @@
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
         <td><%= card.description %></td>
-        <td><%=l card.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       card_path(card), :class => 'btn btn-primary btn-mini' %>

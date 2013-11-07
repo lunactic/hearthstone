@@ -1,6 +1,13 @@
 class CardsController < ApplicationController
 
-	before_filter :authenticate_user!, :except => [:index, :show]     # user has to be logged in for creating, updating or deleting cards
+  before_filter :authenticate_user!, :except => [:index, :show] # user has to be logged in for creating, updating or deleting cards
+  helper_method :sort_column, :sort_direction
+
+
+  def index
+    @cards = Card.order(sort_column + ' ' + sort_direction)
+    authorize! :read, @card
+  end
 
   def new
     @card = Card.new
@@ -22,11 +29,6 @@ class CardsController < ApplicationController
     authorize! :read, @card
   end
 
-  def index
-    @cards = Card.all
-    authorize! :read, @card
-  end
-
   def edit
     @card = Card.find(params[:id])
     authorize! :update, @card
@@ -41,7 +43,15 @@ class CardsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:card).permit(:name,:card_class, :card_type, :rarity, :cost, :attack, :health, :description)
-    end
+  def post_params
+    params.require(:card).permit(:name, :card_class, :card_type, :rarity, :cost, :attack, :health, :description)
+  end
+
+  def sort_column
+    Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 end
