@@ -9,5 +9,9 @@ Quick installation notice:
  - A quick intro into Heroku can be found here: https://devcenter.heroku.com/articles/getting-started-with-rails4
  - A quick intro into RoR can be found here: http://guides.rubyonrails.org/getting_started.html
  - Make sure to insert following roles into roles db: admin, user, guest; with ids 0, 1, 2
+ -- for heroku: open heroku console (heroku pg:psql) and set up following sql statemetns
+ --- INSERT INTO roles (id, name) VALUES (0, 'admin);
+ --- INSERT INTO roles (id, name) VALUES (1, 'user');
+ --- INSERT INTO roles (id, name) VALUES (2, 'guest');
 
 I hope this should cover the most important things to get started ;-)
