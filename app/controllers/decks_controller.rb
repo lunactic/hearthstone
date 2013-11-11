@@ -16,6 +16,7 @@ class DecksController < ApplicationController
   def new
     @deck = Deck.new
     @cards = Card.all
+    authorize! :new, @deck
   end
 
   # GET /decks/1/edit
@@ -25,15 +26,14 @@ class DecksController < ApplicationController
   # POST /decks
   # POST /decks.json
   def create
-    @deck = Deck.new(deck_params)
-
+    @user = User.find(params[:user_id])
+    authorize! :create, @deck
+    @deck = @user.decks.create(deck_params)
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to '/decks/addCards/'+@deck.id.to_s}
-        format.json { render action: 'show', status: :created, location: @deck }
+        format.html { redirect_to '/users/'+@user.id.to_s+'/decks/addCards/'+@deck.id.to_s}
       else
         format.html { render action: 'new' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +44,8 @@ class DecksController < ApplicationController
     respond_to do |format|
       if @deck.update(deck_params)
         format.html { redirect_to @deck, notice: 'Deck was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,15 +54,12 @@ class DecksController < ApplicationController
   # DELETE /decks/1.json
   def destroy
     @deck.destroy
-    respond_to do |format|
-      format.html { redirect_to decks_url }
-      format.json { head :no_content }
-    end
+    redirect_to user_decks_path
   end
 
   def addCards
      @deck = Deck.find(params[:id])
-     @cards = Card.where(card_class:  @deck.deck_type)
+     @cards = Card.where('card_class = ? OR card_class = ?', @deck.deck_type,'Neutral')
 
   end
 

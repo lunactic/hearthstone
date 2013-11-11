@@ -1,5 +1,25 @@
-<%- model_class = Deck -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+  <h1> Create new Deck</h1>
 </div>
-<%= render :partial => 'form' %>
+<%= form_for @deck, url: {action: "create"}, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= render 'decks/messages' %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :deck_type, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :deck_type, Deck::DECK_TYPES  %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  user_decks_path, :class => 'btn' %>
+    </div>
+<% end %>
+

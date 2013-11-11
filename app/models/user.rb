@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 	has_and_belongs_to_many :roles
 	has_many :stat_entries
+  has_many :decks
 
 	validates :username, presence: true
 	validates :username, uniqueness: true, if: -> { self.username.present? }

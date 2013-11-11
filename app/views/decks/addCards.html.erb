@@ -1,18 +1,15 @@
 <%- model_class = Deck -%>
-<h1>Available Cards</h1>
-<table class="table table-striped">
+<div>
+<div style="width:400px; float: left; margin-right: 40px;">
+  <h1>Available Cards</h1>
+  <table class="table table-striped">
   <thead>
   <tr>
     <th><%= model_class.human_attribute_name(:name) %></th>
-    <th><%= model_class.human_attribute_name(:card_class) %></th>
-    <th><%= model_class.human_attribute_name(:card_type) %></th>
     <th><%= model_class.human_attribute_name(:rarity) %></th>
     <th><%= model_class.human_attribute_name(:cost) %></th>
     <th><%= model_class.human_attribute_name(:attack) %></th>
     <th><%= model_class.human_attribute_name(:health) %></th>
-    <th><%= model_class.human_attribute_name(:description) %></th>
-    <th><%= model_class.human_attribute_name(:description) %></th>
-
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -20,32 +17,28 @@
   <% @cards.each do |card| %>
       <tr>
         <td><%= card.name %></td>
-        <td><%= card.card_class %></td>
-        <td><%= card.card_type %></td>
         <td><%= card.rarity %></td>
         <td><%= card.cost %></td>
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
-        <td><%= card.description %></td>
         <td>
-          <%= link_to "Add to deck", add_card_path(@deck,card), :method => 'post' %>
+          <%= link_to image_tag("/images/add.png"), add_card_path(@deck,card), :method => 'post' %>
         </td>
       </tr>
   <% end %>
   </tbody>
 </table>
+</div>
+<div style="width:400px; float: left;">
 <h1>Cards in this deck</h1>
 <table class="table table-striped">
   <thead>
   <tr>
     <th><%= model_class.human_attribute_name(:name) %></th>
-    <th><%= model_class.human_attribute_name(:card_class) %></th>
-    <th><%= model_class.human_attribute_name(:card_type) %></th>
     <th><%= model_class.human_attribute_name(:rarity) %></th>
     <th><%= model_class.human_attribute_name(:cost) %></th>
     <th><%= model_class.human_attribute_name(:attack) %></th>
     <th><%= model_class.human_attribute_name(:health) %></th>
-    <th><%= model_class.human_attribute_name(:description) %></th>
     <th><%= model_class.human_attribute_name(:quantity) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
@@ -57,18 +50,18 @@
 
       <tr>
         <td><%= card.name %></td>
-        <td><%= card.card_class %></td>
-        <td><%= card.card_type %></td>
         <td><%= card.rarity %></td>
         <td><%= card.cost %></td>
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
-        <td><%= card.description %></td>
         <td><%= cardDeck.quantity %> </td>
         <td>
-          <%= link_to "Remove from deck", remove_card_path(@deck,card), :method => 'delete' %>
+          <%= link_to image_tag("/images/delete.png"), remove_card_path(@deck,card), :method => 'delete' %>
         </td>
       </tr>
   <% end %>
   </tbody>
 </table>
+</div>
+  <div style="clear: both;"></div>
+</div>
