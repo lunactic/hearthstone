@@ -35,6 +35,7 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application", "highcharts" %>
+    <%= auto_discovery_link_tag(:atom, cards_path(format: "atom")) %>
   </head>
   <body>
 

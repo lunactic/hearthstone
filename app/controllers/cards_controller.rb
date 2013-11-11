@@ -25,6 +25,11 @@ class CardsController < ApplicationController
   def index
     @cards = Card.all
     authorize! :read, @card
+
+    respond_to do |format|
+	    format.html {}
+	    format.atom { render layout: false }
+    end
   end
 
   def edit
