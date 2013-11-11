@@ -23,12 +23,17 @@ class CardsController < ApplicationController
   end
 
   def index
-    @cards = Card.all
-    authorize! :read, @card
+    @cards = Card.search(params[:search])
+    authorize! :read, @cards
 
     respond_to do |format|
-	    format.html {}
-	    format.atom { render layout: false }
+	    format.html {
+		    if @cards.class == Array
+			    @cards = Kaminari.paginate_array(@cards).page(params[:page])
+		    else
+			    @cards = @cards.page(params[:page])
+		    end}
+	    format.atom { @cards = Card.all }
     end
   end
 

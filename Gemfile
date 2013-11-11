@@ -48,6 +48,8 @@ gem 'carrierwave'
 
 gem "highcharts-rails", "~> 3.0.7"
 
+gem 'kaminari'
+
 gem 'heroku'
 gem 'rails_12factor', group: :production
 

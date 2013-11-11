@@ -1,14 +1,12 @@
 # configuration options for feed
 feed_options = {
-	:language => 'en-US',
+	:language => 'en-US'
 	#:url => root_path
 }
 
 atom_feed feed_options do |feed|
 	# set feed title
 	feed.title "Hearthstone Application #Cards"
-	# set feed updated date, setting publish_date of the newest post
-	feed.updated @cards.maximum(:created_at)
 
 	@cards.each do |card|
 		# configuration options for feed entry
