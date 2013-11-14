@@ -5,23 +5,19 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:deck_type) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= sortable "name", model_class.human_attribute_name(:name) %></th>
+      <th><%= sortable "deck_type", model_class.human_attribute_name(:deck_type) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
-        <td><%= link_to deck.id, user_deck_path(deck.user_id,deck) %></td>
         <td><%= deck.name %></td>
         <td><%= deck.deck_type %></td>
-        <td><%=l deck.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_user_deck_path(deck.user_id,deck), :class => 'btn btn-mini' %>
+                      '/users/'+current_user.id.to_s+'/decks/addCards/'+deck.id.to_s, :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       user_deck_path(deck.user_id,deck),
                       :method => :delete,

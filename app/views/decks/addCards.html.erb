@@ -1,15 +1,16 @@
 <%- model_class = Deck -%>
 <div>
-<div style="width:400px; float: left; margin-right: 40px;">
+<div style="width:49%; float: left; margin-right: 2%;">
   <h1>Available Cards</h1>
   <table class="table table-striped">
   <thead>
   <tr>
-    <th><%= model_class.human_attribute_name(:name) %></th>
-    <th><%= model_class.human_attribute_name(:rarity) %></th>
-    <th><%= model_class.human_attribute_name(:cost) %></th>
-    <th><%= model_class.human_attribute_name(:attack) %></th>
-    <th><%= model_class.human_attribute_name(:health) %></th>
+    <th><%= sortable "name", model_class.human_attribute_name(:name) %></th>
+    <th><%= sortable "card_class","Class" %></th>
+    <th><%= sortable "rarity", model_class.human_attribute_name(:rarity) %></th>
+    <th><%= sortable "cost", model_class.human_attribute_name(:cost) %></th>
+    <th><%= sortable "attack", model_class.human_attribute_name(:attack) %></th>
+    <th><%= sortable "health", model_class.human_attribute_name(:health) %></th>
     <th><%=t '.actions', :default => t("helpers.actions") %></th>
   </tr>
   </thead>
@@ -17,19 +18,20 @@
   <% @cards.each do |card| %>
       <tr>
         <td><%= card.name %></td>
+        <td><%= card.card_class %></td>
         <td><%= card.rarity %></td>
         <td><%= card.cost %></td>
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
         <td>
-          <%= link_to image_tag("/images/add.png"), add_card_path(@deck,card), :method => 'post' %>
+          <%= link_to image_tag("/images/add.png"), user_add_card_path(current_user.id,@deck,card), :method => 'post' %>
         </td>
       </tr>
   <% end %>
   </tbody>
 </table>
 </div>
-<div style="width:400px; float: left;">
+<div style="width:49%; float: left;">
 <h1>Cards in this deck</h1>
 <table class="table table-striped">
   <thead>
@@ -44,7 +46,8 @@
   </tr>
   </thead>
   <tbody>
-  <% @deck.card_decks.each do |cardDeck|
+  <%
+    @deck.card_decks.each do |cardDeck|
     card = Card.find(cardDeck.card_id)
     %>
 
@@ -56,7 +59,7 @@
         <td><%= card.health %></td>
         <td><%= cardDeck.quantity %> </td>
         <td>
-          <%= link_to image_tag("/images/delete.png"), remove_card_path(@deck,card), :method => 'delete' %>
+          <%= link_to image_tag("/images/delete.png"), user_remove_card_path(current_user.id,@deck,card), :method => 'delete' %>
         </td>
       </tr>
   <% end %>
