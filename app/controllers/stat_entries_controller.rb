@@ -1,5 +1,7 @@
 class StatEntriesController < ApplicationController
 
+	helper_method :sort_column, :sort_direction
+
 	def new
 		@stat_entry = StatEntry.new
 		authorize! :new, @stat_entry
@@ -31,7 +33,7 @@ class StatEntriesController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
-		@stat_entries  = @user.stat_entries.all
+		@stat_entries  = @user.stat_entries.order(sort_column + ' ' + sort_direction)		
 		authorize! :read, @stat_entries
 	end
 
@@ -67,7 +69,7 @@ class StatEntriesController < ApplicationController
 			AND (game_mode = :game_mode OR (:game_mode = 'All'))",
 			{hero: params[:stat_entry].permit([:hero])[:hero],
 			opp_hero: params[:stat_entry].permit([:opp_hero])[:opp_hero],
-			game_mode: params[:stat_entry].permit([:game_mode])[:game_mode]})
+			game_mode: params[:stat_entry].permit([:game_mode])[:game_mode]}).order('created_at DESC')
 		else
 			@stat_entries = @user.stat_entries.where("(hero = :hero OR (:hero = 'All')) AND (opp_hero = :opp_hero OR (:opp_hero = 'All'))
 			AND (game_mode = :game_mode OR (:game_mode = 'All'))
@@ -75,10 +77,19 @@ class StatEntriesController < ApplicationController
 			{hero: params[:stat_entry].permit([:hero])[:hero],
 			opp_hero: params[:stat_entry].permit([:opp_hero])[:opp_hero],
 			game_mode: params[:stat_entry].permit([:game_mode])[:game_mode],
-			first: params[:stat_entry].permit([:first])[:first]})
+			first: params[:stat_entry].permit([:first])[:first]}).order('created_at DESC')
 		end
 
 		@nbr_win = @stat_entries.where(result: 'Victory').count
 		@nbr_loss = @stat_entries.where(result: 'Defeat').count
 	end
+
+  private
+  def sort_column
+    StatEntry.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
 end
