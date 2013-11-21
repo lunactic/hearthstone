@@ -17,7 +17,7 @@
         <td><%= deck.deck_type %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      '/users/'+current_user.id.to_s+'/decks/addCards/'+deck.id.to_s, :class => 'btn btn-mini' %>
+                      user_deck_add_cards_path(deck.user_id,deck), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       user_deck_path(deck.user_id,deck),
                       :method => :delete,

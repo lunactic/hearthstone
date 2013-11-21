@@ -13,11 +13,18 @@ Hearthstone::Application.routes.draw do
   resources :users do
     get 'stat_entries/overview' => 'stat_entries#overview'
     post 'stat_entries/select_overview' => 'stat_entries#select_overview'
-    get 'decks/addCards/:id' => 'decks#addCards'
-    post 'decks/addCards/:deckId/:cardId' => 'decks#addCard', :as => :add_card
-    delete 'decks/addCards/:deckId/:cardId' => 'decks#removeCard', :as => :remove_card
+    #get 'decks/addCards/:id' => 'decks#addCards'
+    #post 'decks/addCards/:deckId/:cardId' => 'decks#addCard', :as => :add_card
+    #delete 'decks/addCards/:deckId/:cardId' => 'decks#removeCard', :as => :remove_card
+    #get 'decks/addCards/:deckId/:cardId' => 'decks#search', :as => :search
     resources :stat_entries
-    resources :decks
+    resources :decks do
+      get 'add_cards/add_card/:card_id' => 'add_cards#add_card', :as => :add_card
+      delete 'add_cards/remove_card/:card_id' => 'add_cards#remove_card', :as => :remove_card
+      resources :add_cards do
+
+      end
+    end
   end
 
 

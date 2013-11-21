@@ -15,3 +15,17 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+    // Sorting and pagination links.
+    $(document).on("click","#available_cards th a, #available_cards .pagination a", function() {
+        $.getScript(this.href);
+        return false;
+    });
+
+    // Search form.
+    $('#cards_search input').keyup(function () {
+        $.get($('#cards_search').attr('action'), $('#cards_search').serialize(), null, 'script');
+        return false;
+    });
+});

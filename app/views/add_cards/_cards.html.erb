@@ -1,0 +1,29 @@
+<%- model_class = Deck -%>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= sortable "name", model_class.human_attribute_name(:name) %></th>
+    <th><%= sortable "card_class","Class" %></th>
+    <th><%= sortable "rarity", model_class.human_attribute_name(:rarity) %></th>
+    <th><%= sortable "cost", model_class.human_attribute_name(:cost) %></th>
+    <th><%= sortable "attack", model_class.human_attribute_name(:attack) %></th>
+    <th><%= sortable "health", model_class.human_attribute_name(:health) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.name %></td>
+        <td><%= card.card_class %></td>
+        <td><%= card.rarity %></td>
+        <td><%= card.cost %></td>
+        <td><%= card.attack %></td>
+        <td><%= card.health %></td>
+        <td>
+          <%= link_to image_tag("/images/add.png"), user_deck_add_card_path(@user.id, @deck, card)%>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
