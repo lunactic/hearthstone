@@ -5,7 +5,7 @@ class CardsController < ApplicationController
 
 
   def index
-    @cards = Card.order(sort_column + ' ' + sort_direction)
+    @cards = Card.order(sort_column + ' ' + sort_direction).paginate(:per_page => 25, :page => params[:page])
     authorize! :read, @card
   end
 

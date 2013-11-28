@@ -2,45 +2,9 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= sortable "name", model_class.human_attribute_name(:name) %></th>
-      <th><%= sortable "card_class","Class" %></th>
-      <th><%= sortable "card_type", "Type" %></th>
-      <th><%= sortable "rarity", model_class.human_attribute_name(:rarity) %></th>
-      <th><%= sortable "cost", model_class.human_attribute_name(:cost) %></th>
-      <th><%= sortable "attack", model_class.human_attribute_name(:attack) %></th>
-      <th><%= sortable "health", model_class.human_attribute_name(:health) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-  </thead>
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= card.name %></td>
-        <td><%= card.card_class %></td>
-        <td><%= card.card_type %></td>
-        <td><%= card.rarity %></td>
-        <td><%= card.cost %></td>
-        <td><%= card.attack %></td>
-        <td><%= card.health %></td>
-        <td><%= truncate(card.description, :length => 35, :omission => '...') %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      card_path(card), :class => 'btn btn-primary btn-mini' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_card_path(card), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      card_path(card),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div id="cards"><%= render 'cards'%></div>
+<img id="floating_img" class="img_invisible" src="/images/cards/Abomination.png"/>
+<%= will_paginate @cards%>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_card_path,
             :class => 'btn btn-primary' %>
