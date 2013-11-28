@@ -47,6 +47,7 @@ gem 'cancan'
 gem 'carrierwave'
 
 gem "highcharts-rails", "~> 3.0.7"
+gem 'will_paginate', '~> 3.0'
 
 gem 'kaminari'
 

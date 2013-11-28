@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
-	before_filter :authenticate_user!, :except => [:index, :show]     # user has to be logged in for creating, updating or deleting cards
-
+  before_filter :authenticate_user!, :except => [:index, :show] # user has to be logged in for creating, updating or deleting cards
+  helper_method :sort_column, :sort_direction
   def new
     @card = Card.new
     authorize! :new, @card
@@ -23,15 +23,16 @@ class CardsController < ApplicationController
   end
 
   def index
-    @cards = Card.search(params[:search])
+    @cards = Card.order(sort_column + ' ' + sort_direction).search(params[:search])
+    #@cards = Card.search(params[:search])
     authorize! :read, @cards
 
     respond_to do |format|
 	    format.html {
 		    if @cards.class == Array
 			    @cards = Kaminari.paginate_array(@cards).page(params[:page])
-		    else
-			    @cards = @cards.page(params[:page])
+        else
+			    @cards = @cards.order(sort_column + ' ' + sort_direction).page(params[:page])
 		    end}
 	    format.atom { @cards = Card.all }
     end
@@ -51,7 +52,15 @@ class CardsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:card).permit(:name,:card_class, :card_type, :rarity, :cost, :attack, :health, :description)
-    end
+  def post_params
+    params.require(:card).permit(:name, :card_class, :card_type, :rarity, :cost, :attack, :health, :description)
+  end
+
+  def sort_column
+    Card.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 end

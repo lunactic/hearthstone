@@ -1,0 +1,52 @@
+<%- model_class = Deck -%>
+<div>
+  <div style="width:49%; float: left; margin-right: 2%;">
+    <h1>Available Cards</h1>
+    <%= form_tag user_deck_add_cards_path(@user.id.to_s,@deck.id.to_s), :method => 'get', :id => "cards_search" do  %>
+        <%= hidden_field_tag :direction, params[:direction] %>
+        <%= hidden_field_tag :sort, params[:sort] %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+        </p>
+    <% end %>
+    <div id="available_cards"><%= render 'cards'%></div>
+    <%= will_paginate @cards %>
+  </div>
+  <div style="width:49%; float: left;">
+    <h1>Cards in this deck (<%= @currentNumberOfCards.to_s %>/30)</h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th><%= model_class.human_attribute_name(:name) %></th>
+        <th><%= model_class.human_attribute_name(:rarity) %></th>
+        <th><%= model_class.human_attribute_name(:cost) %></th>
+        <th><%= model_class.human_attribute_name(:attack) %></th>
+        <th><%= model_class.human_attribute_name(:health) %></th>
+        <th><%= model_class.human_attribute_name(:quantity) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%
+         @deck.card_decks.each do |cardDeck|
+           card = Card.find(cardDeck.card_id)
+      %>
+
+          <tr>
+            <td><%= card.name %></td>
+            <td><%= card.rarity %></td>
+            <td><%= card.cost %></td>
+            <td><%= card.attack %></td>
+            <td><%= card.health %></td>
+            <td><%= cardDeck.quantity %> </td>
+            <td>
+              <%= link_to image_tag("/images/delete.png"), user_deck_remove_card_path(@user.id,@deck,card), :method => 'delete' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div style="clear: both;"></div>
+</div>

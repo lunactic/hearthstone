@@ -10,6 +10,7 @@ class DataLoaderController < ApplicationController
   end
 
   def upload
+    counter = 0
     uploaded_io = params[:jsonfile]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
       file.write(uploaded_io.read)
@@ -42,9 +43,19 @@ class DataLoaderController < ApplicationController
       end
       card.card_type =  @@types[entry['type']]
       card.description = entry['description']
-      card.save
-    end
 
+      #Try find a card with the same name
+      #Only import card if none with the same name already exists
+      if Card.where(name: card.name).take.nil?
+        if card.save
+          counter= counter + 1
+        end
+      end
+
+    end
+    notice = 'You have successfully imported: ' << counter.to_s << ' cards!'
+    flash[:notice] = notice
+    redirect_to '/data_loader'
   end
 end
 

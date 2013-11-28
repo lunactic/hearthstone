@@ -1,4 +1,5 @@
 class Card < ActiveRecord::Base
+  default_scope ->{ order('name') }
   has_many :decks, through: :card_decks
   has_many :card_decks
   validates :name, presence: true
@@ -12,13 +13,13 @@ class Card < ActiveRecord::Base
 	def self.search(search)
 		if search
 			if search.to_i != 0
-			  find(:all, :conditions => ['cost = ? OR attack = ? OR health = ?', search, search, search])
+			  where('cost = ? OR attack = ? OR health = ?', search, search, search)
 			elsif search.is_a? String
-				find(:all, :conditions => ['name LIKE ? OR card_class LIKE ? OR card_type LIKE ? OR rarity LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%"])
-			else find(:all)
+				where('LOWER(name) LIKE ? OR LOWER(card_class) LIKE ? OR LOWER(card_type) LIKE ? OR LOWER(rarity) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
+			else scoped
 			end
 		else
-			find(:all)
+			scoped
 		end
 	end
 end

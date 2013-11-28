@@ -1,53 +1,33 @@
 class DecksController < ApplicationController
-  before_action :set_deck, only: [:show, :edit, :update, :destroy]
+  before_action :set_deck, only: [:update, :destroy]
+  helper_method :sort_column, :sort_direction
+
 
   # GET /decks
   # GET /decks.json
   def index
-    @decks = Deck.all
-  end
-
-  # GET /decks/1
-  # GET /decks/1.json
-  def show
+    @decks = Deck.where(user_id: params[:user_id]).order(sort_column+' '+sort_direction)
+    authorize! :index, @decks
   end
 
   # GET /decks/new
   def new
     @deck = Deck.new
     @cards = Card.all
-  end
-
-  # GET /decks/1/edit
-  def edit
+    authorize! :new, @deck
   end
 
   # POST /decks
   # POST /decks.json
   def create
-    @deck = Deck.new(deck_params)
-
+    @user = User.find(params[:user_id])
+    authorize! :create, @deck
+    @deck = @user.decks.create(deck_params)
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to '/decks/addCards/'+@deck.id.to_s}
-        format.json { render action: 'show', status: :created, location: @deck }
+        format.html { redirect_to user_deck_add_cards_path(@user, @deck)}
       else
         format.html { render action: 'new' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /decks/1
-  # PATCH/PUT /decks/1.json
-  def update
-    respond_to do |format|
-      if @deck.update(deck_params)
-        format.html { redirect_to @deck, notice: 'Deck was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,46 +35,11 @@ class DecksController < ApplicationController
   # DELETE /decks/1
   # DELETE /decks/1.json
   def destroy
+    @user = User.find(params[:user_id])
+    @deck = Deck.find(params[:id])
+    authorize! :delete, @deck
     @deck.destroy
-    respond_to do |format|
-      format.html { redirect_to decks_url }
-      format.json { head :no_content }
-    end
-  end
-
-  def addCards
-     @deck = Deck.find(params[:id])
-     @cards = Card.where(card_class:  @deck.deck_type)
-
-  end
-
-  def addCard
-      @deck = Deck.find(params[:deckId])
-      @card = Card.find(params[:cardId])
-      if @deck.cards.include?(@card)
-        cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
-        cardDeck.quantity = 2
-        cardDeck.save
-      else
-        @deck.cards << @card
-        cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
-        cardDeck.quantity = 1
-        cardDeck.save
-      end
-      redirect_to '/decks/addCards/'+@deck.id.to_s
-  end
-
-  def removeCard
-    @deck = Deck.find(params[:deckId])
-    @card = Card.find(params[:cardId])
-    cardDeck = @deck.card_decks.where(card: @card, deck: @deck).take!
-    if @deck.cards.include?(@card) && cardDeck.quantity==2
-      cardDeck.quantity = 1
-      cardDeck.save
-    else
-      @deck.cards.destroy(@card)
-    end
-    redirect_to '/decks/addCards/'+@deck.id.to_s
+    redirect_to user_decks_path
   end
 
   private
@@ -106,5 +51,12 @@ class DecksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def deck_params
       params.require(:deck).permit(:name,:deck_type)
+    end
+
+    def sort_column
+        Deck.column_names.include?(params[:sort]) ? params[:sort] : "name"
+     end
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 end
