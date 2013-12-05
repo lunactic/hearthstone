@@ -5,14 +5,14 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Hero</th>
-      <th>Opponent Hero</th>
-      <th>Game Mode</th>
-      <th>Result</th>
-      <th>Did you go first?</th>
-      <th>Created at</th>
-      <th>Updated at</th>
+      <th><%= sortable "id","Id" %></th>
+      <th><%= sortable "hero","Hero" %></th>
+      <th><%= sortable "opp_hero","Opponent Hero" %></th>
+      <th><%= sortable "game_mode","Game Mode" %></th>
+      <th><%= sortable "result","Result" %></th>
+      <th><%= sortable "first","Did you go first?" %></th>
+      <th><%= sortable "created_at","Created at" %></th>
+      <th><%= sortable "updated_at","Updated at" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>

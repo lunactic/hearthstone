@@ -8,24 +8,28 @@
 		        type: 'pie'
 		      },
 					title: {
-						text: 'Overview'        
+						text: 'Game Statistics'        
 					},
+          tooltip: {
+      	    pointFormat: '<b>{point.percentage:.1f}%</b>'
+          },
 		      plotOptions: {
-		        series: {
+		        pie: {
 		          allowPointSelect: true,
 		          slicedOffset: 0,
 		          states: {
-		              select: {
-		                  color: '#666'
-		              }
-		          }
-		      }
-		  },
+	              select: {
+	                color: '#666'
+	          	  }
+		        	},
+							showInLegend: true
+		      	}
+		  		},
 
-		  series: [{
-		      data: [['Victory', <%= @nbr_win %>], ['Defeat', <%= @nbr_loss %>]]        
-		  }]
-		  });
+				  series: [{
+			      data: [['Victory', <%= @nbr_win %>], ['Defeat', <%= @nbr_loss %>]]        
+				  }]
+			  });
 	});
 </script>
 

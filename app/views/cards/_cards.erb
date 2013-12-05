@@ -21,7 +21,7 @@
         <td><%= card.cost %></td>
         <td><%= card.attack %></td>
         <td><%= card.health %></td>
-        <td><%= truncate(card.description, :length => 35, :omission => '...') %></td>
+        <td><%=truncate(card.description,length: 35,omission: '...')%></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       card_path(card), :class => 'btn btn-primary btn-mini' %>
