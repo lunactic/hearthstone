@@ -20,7 +20,7 @@
 
 $(function () {
     // Sorting and pagination links.
-    $(document).on("click", "#available_cards th a, #available_cards .pagination a", function () {
+    $(document).on("click", "#available_cards th a, #available_cards .pagination a, #all_cards th a, #all_cards .pagination a", function () {
         $.getScript(this.href);
         return false;
     });
@@ -33,10 +33,7 @@ $(function () {
 
 $(function () {
     // Sorting and pagination links.
-    $(document).on("click", "#all_cards th a, #all_cards .pagination a", function () {
-        $.getScript(this.href);
-        return false;
-    });
+
     //Search form in cards_controller
     $('#search_form input').keyup(function () {
         $.get($('#search_form').attr('action'), $('#search_form').serialize(), null, 'script');

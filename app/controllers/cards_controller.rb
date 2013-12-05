@@ -29,8 +29,8 @@ class CardsController < ApplicationController
     authorize! :read, @cards
 
     respond_to do |format|
-	    format.html {
-      }
+	    format.html { }
+      format.js { render :action =>'index' }
 	    format.atom { @cards = Card.all }
     end
   end
