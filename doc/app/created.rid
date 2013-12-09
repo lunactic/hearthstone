@@ -1,0 +1,27 @@
+Mon, 09 Dec 2013 12:38:31 +0100
+README.rdoc	Thu, 05 Dec 2013 09:21:27 +0100
+app/controllers/add_cards_controller.rb	Mon, 09 Dec 2013 12:36:45 +0100
+app/controllers/application_controller.rb	Thu, 07 Nov 2013 09:36:14 +0100
+app/controllers/cards_controller.rb	Thu, 05 Dec 2013 12:06:13 +0100
+app/controllers/data_loader_controller.rb	Mon, 09 Dec 2013 12:37:08 +0100
+app/controllers/decks_controller.rb	Thu, 05 Dec 2013 09:21:27 +0100
+app/controllers/stat_entries_controller.rb	Fri, 06 Dec 2013 15:11:29 +0100
+app/controllers/welcome_controller.rb	Thu, 31 Oct 2013 10:36:06 +0100
+app/helpers/add_cards_helper.rb	Thu, 05 Dec 2013 09:21:27 +0100
+app/helpers/application_helper.rb	Thu, 05 Dec 2013 09:21:27 +0100
+app/helpers/cards_helper.rb	Thu, 31 Oct 2013 10:36:06 +0100
+app/helpers/data_load_helper.rb	Thu, 07 Nov 2013 09:24:44 +0100
+app/helpers/data_loader_helper.rb	Thu, 07 Nov 2013 09:24:44 +0100
+app/helpers/deck_helper.rb	Thu, 07 Nov 2013 09:24:44 +0100
+app/helpers/decks_helper.rb	Thu, 07 Nov 2013 09:24:44 +0100
+app/helpers/devise_helper.rb	Thu, 07 Nov 2013 09:36:14 +0100
+app/helpers/stat_entries_helper.rb	Thu, 07 Nov 2013 09:36:14 +0100
+app/helpers/welcome_helper.rb	Thu, 31 Oct 2013 10:36:06 +0100
+app/models/ability.rb	Thu, 05 Dec 2013 09:21:27 +0100
+app/models/card.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/models/card_deck.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/models/deck.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/models/role.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/models/stat_entry.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/models/user.rb	Mon, 09 Dec 2013 12:37:14 +0100
+app/uploaders/avatar_uploader.rb	Thu, 07 Nov 2013 09:36:14 +0100

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class DataLoaderController < ApplicationController
   require 'json'
   @@classes = {0 => 'Neutral', 1 => 'Warrior', 2=>'Paladin', 3=>'Hunter', 4=>'Rogue', 5=>'Priest', 7=>'Shaman', 8=>'Mage', 9=>'Warlock', 11=>'Druid'}

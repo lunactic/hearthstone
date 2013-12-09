@@ -40,7 +40,9 @@ gem 'httparty'
 #group :development, :test do
 #  gem 'sqlite3'
 #end
-
+group :development do
+  gem "rails-erd"
+end
 gem 'devise'
 gem 'cancan'
 
@@ -53,6 +55,7 @@ gem 'kaminari'
 
 gem 'heroku'
 gem 'rails_12factor', group: :production
+gem 'annotate', '>=2.6.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

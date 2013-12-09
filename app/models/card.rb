@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: cards
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  card_class  :string(255)
+#  card_type   :string(255)
+#  rarity      :string(255)
+#  cost        :integer
+#  attack      :integer
+#  health      :integer
+#  description :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Card < ActiveRecord::Base
   default_scope ->{ order('name') }
   has_many :decks, through: :card_decks

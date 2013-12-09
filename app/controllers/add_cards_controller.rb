@@ -1,13 +1,18 @@
+# encoding: utf-8
 class AddCardsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+  #lists the current deck and all available cards
+  #calculates the current number of cards in the deck
   def index
     @user = User.find(params[:user_id])
     @deck = Deck.find(params[:deck_id])
     @cards = Card.where('card_class = ? OR card_class = ?', @deck.deck_type, 'Neutral').search(params[:search]).order(sort_column+' '+sort_direction).paginate(:per_page => 14, :page => params[:page])
-    @currentNumberOfCards = @deck.card_decks.where(deck: @deck).sum("quantity")
+    #@currentNumberOfCards = @deck.card_decks.where(deck: @deck).sum("quantity")
+    @currentNumberOfCards = @deck.current_number_of_cards
   end
 
+  #adds a card to the current deck
   def add_card
     @user = User.find(params[:user_id])
     @deck = Deck.find(params[:deck_id])
@@ -17,11 +22,10 @@ class AddCardsController < ApplicationController
     @currentNumberOfCards = @deck.card_decks.where(deck: @deck).sum("quantity")
     if @currentNumberOfCards >= 30
       flash[:alert]="You cannot have more than 30 cards in your deck"
-
     else
       if @deck.cards.include?(@card)
         if @deck.card_decks.where(card: @card, deck: @deck).sum("quantity") >= 2
-          flash[:alert]="You already have two "<<@card.name.pluralize()<<" in your deck!"
+          flash[:alert]='You already have two ' + @card.name.pluralize() + ' in your deck!'
         else
           card_deck = @deck.card_decks.where(card: @card, deck: @deck).take!
           card_deck.quantity = 2
