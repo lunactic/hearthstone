@@ -64,7 +64,17 @@
 </nav>
 
     
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
     
+    <li><a href="#method-i-current_number_of_cards">#current_number_of_cards</a>
+    
+  </ul>
+</nav>
+
   </div>
 
   <div id="project-metadata">
@@ -173,7 +183,7 @@ user_id    :integer</pre>
       
         <dt id="DECK_TYPES">DECK_TYPES
         
-        <dd class="description">
+        <dd class="description"><p>All available deck types</p>
         
       
       </dl>
@@ -184,6 +194,42 @@ user_id    :integer</pre>
 
     <!-- Methods -->
     
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-current_number_of_cards" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current_number_of_cards</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>computes the number of cards that are assigned to this deck</p>
+          
+
+          
+          <div class="method-source-code" id="current_number_of_cards-source">
+            <pre><span class="ruby-comment"># File app/models/deck.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_number_of_cards</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">card_decks</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">deck</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>).<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;quantity&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- current_number_of_cards-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- current_number_of_cards-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
   </section><!-- 5Buntitled-5D -->
 
 </div><!-- documentation -->

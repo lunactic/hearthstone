@@ -189,12 +189,12 @@
 
         <div class="method-description">
           
-          
+          <p>adds a card to the current deck</p>
           
 
           
           <div class="method-source-code" id="add_card-source">
-            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 11</span>
+            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_card</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_id</span>])
   <span class="ruby-ivar">@deck</span> = <span class="ruby-constant">Deck</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:deck_id</span>])
@@ -243,17 +243,19 @@
 
         <div class="method-description">
           
-          
+          <p>lists the current deck and all available cards calculates the current
+number of cards in the deck</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:user_id</span>])
   <span class="ruby-ivar">@deck</span> = <span class="ruby-constant">Deck</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:deck_id</span>])
   <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">'card_class = ? OR card_class = ?'</span>, <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">deck_type</span>, <span class="ruby-string">'Neutral'</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">sort_column</span><span class="ruby-operator">+</span><span class="ruby-string">' '</span><span class="ruby-operator">+</span><span class="ruby-identifier">sort_direction</span>).<span class="ruby-identifier">paginate</span>(<span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">14</span>, <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
-  <span class="ruby-ivar">@currentNumberOfCards</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">card_decks</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">deck</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@deck</span>).<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;quantity&quot;</span>)
+  <span class="ruby-comment">#@currentNumberOfCards = @deck.card_decks.where(deck: @deck).sum(&quot;quantity&quot;)</span>
+  <span class="ruby-ivar">@currentNumberOfCards</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">current_number_of_cards</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- index-source -->
           
@@ -281,7 +283,7 @@
 
           
           <div class="method-source-code" id="remove_card-source">
-            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/controllers/add_cards_controller.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_card</span>
   <span class="ruby-ivar">@deck</span> = <span class="ruby-constant">Deck</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:deck_id</span>])
   <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:card_id</span>])

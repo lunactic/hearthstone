@@ -236,7 +236,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/cards_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/cards_controller.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">authorize!</span> <span class="ruby-value">:destroy</span>, <span class="ruby-ivar">@card</span>
@@ -270,7 +270,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/cards_controller.rb, line 41</span>
+            <pre><span class="ruby-comment"># File app/controllers/cards_controller.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-identifier">authorize!</span> <span class="ruby-value">:update</span>, <span class="ruby-ivar">@card</span>
@@ -303,17 +303,14 @@
           <div class="method-source-code" id="index-source">
             <pre><span class="ruby-comment"># File app/controllers/cards_controller.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">sort_column</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sort_direction</span>).<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>])
+  <span class="ruby-comment">#@cards = Card.order(sort_column + ' ' + sort_direction).search(params[:search])</span>
   <span class="ruby-comment">#@cards = Card.search(params[:search])</span>
+  <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">sort_column</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sort_direction</span>).<span class="ruby-identifier">paginate</span>(<span class="ruby-value">:per_page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">25</span>, <span class="ruby-value">:page</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
   <span class="ruby-identifier">authorize!</span> <span class="ruby-value">:read</span>, <span class="ruby-ivar">@cards</span>
 
   <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
-          <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> {
-                  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cards</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Array</span>
-                          <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Kaminari</span>.<span class="ruby-identifier">paginate_array</span>(<span class="ruby-ivar">@cards</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
-      <span class="ruby-keyword">else</span>
-                          <span class="ruby-ivar">@cards</span> = <span class="ruby-ivar">@cards</span>.<span class="ruby-identifier">order</span>(<span class="ruby-identifier">sort_column</span> <span class="ruby-operator">+</span> <span class="ruby-string">' '</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">sort_direction</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>])
-                  <span class="ruby-keyword">end</span>}
+          <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { }
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">js</span> { <span class="ruby-identifier">render</span> <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span><span class="ruby-string">'index'</span> }
           <span class="ruby-identifier">format</span>.<span class="ruby-identifier">atom</span> { <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">all</span> }
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>

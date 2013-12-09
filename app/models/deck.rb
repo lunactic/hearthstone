@@ -17,8 +17,10 @@ class Deck < ActiveRecord::Base
   validates :name, presence: true
   validates :user, presence: true
 
+  #All available deck types
   DECK_TYPES = ['Druid','Hunter','Mage','Paladin','Priest','Rogue','Shaman','Warlock','Warrior']
 
+  #computes the number of cards that are assigned to this deck
   def current_number_of_cards
     return card_decks.where(deck: self).sum("quantity")
   end
