@@ -33,10 +33,10 @@ class Card < ActiveRecord::Base
 			  where('cost = ? OR attack = ? OR health = ?', search, search, search)
 			elsif search.is_a? String
 				where('LOWER(name) LIKE ? OR LOWER(card_class) LIKE ? OR LOWER(card_type) LIKE ? OR LOWER(rarity) LIKE ?', "%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%","%#{search.downcase}%")
-			else scoped
+			else Card.all
 			end
 		else
-			scoped
+			Card.all
 		end
 	end
 end

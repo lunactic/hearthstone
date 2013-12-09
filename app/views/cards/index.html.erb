@@ -1,19 +1,19 @@
 <%- model_class = Card -%>
-<div class="page-header">
+<div>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
-    <%= link_to image_tag('feed.png', size: "28x28"), cards_path(format: "atom") %>
-    <div class="pull-right">
-      <%= form_tag(cards_path, :method => "get", class: "navbar-form", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Cards" %>
-        <button class="btn btn-mini" type="submit"><i class="icon-search"></i></button>
+    <%= link_to image_tag('feed.png', size: "28x28"), cards_path(format: "atom") %></h1>
+      <%= form_tag cards_path, :method => 'get', :id => "search_form" do %>
+          <%= hidden_field_tag :direction, params[:direction] %>
+          <%= hidden_field_tag :sort, params[:sort] %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search", :name => nil %>
+          </p>
       <% end %>
-    </div>
-  </h1>
-</div>
-<div id="cards"><%= render 'cards'%></div>
-<div class="pull-right"><%= paginate @cards %></div>
-<img id="floating_img" class="img_invisible" src="/images/cards/Abomination.png"/>
 
+<div id="all_cards"><%= render 'cards'%></div>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_card_path,
             :class => 'btn btn-primary' %>
+<img id="floating_img" class="img_invisible" src="/images/cards/Abomination.png"/>
+</div>
