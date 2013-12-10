@@ -8,7 +8,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.new(post_params)
+    @card = Card.new(card_params)
     authorize! :create, @card
     if @card.save
       redirect_to @card
@@ -37,7 +37,20 @@ class CardsController < ApplicationController
 
   def edit
     @card = Card.find(params[:id])
-    authorize! :update, @card
+    authorize! :edit, @card
+  end
+
+  def update
+		@card = Card.find(params[:id])
+		authorize! :updated, @card
+
+		respond_to do |format|
+			if @card.update(card_params)
+				format.html {redirect_to card_path(@card)}
+			else
+				format.html {render 'edit'}
+			end
+		end
   end
 
   def destroy
@@ -49,7 +62,7 @@ class CardsController < ApplicationController
   end
 
   private
-  def post_params
+  def card_params
     params.require(:card).permit(:name, :card_class, :card_type, :rarity, :cost, :attack, :health, :description)
   end
 
