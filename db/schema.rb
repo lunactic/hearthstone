@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131107210323) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "card_decks", force: true do |t|
     t.integer  "card_id"
     t.integer  "deck_id"
@@ -35,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131107210323) do
     t.integer  "cost"
     t.integer  "attack"
     t.integer  "health"
-    t.integer  "description"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
